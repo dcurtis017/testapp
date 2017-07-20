@@ -1,0 +1,5 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()" novalidate *ngIf="showForm">
+  <input type = "text" formControlName = "todoItem" placeholder="What do you need to do?"> 
+  <input tye = "text" formControlName = "todoDate" placeholder = "MM/DD/YYYY">
+  <button type = "submit" name = "save-btn">Save</button><button (click) = "reset()" type = "reset" name = "cancel-btn">{{editing  ? 'Cancel' : 'Reset'}}</button>
+</form>

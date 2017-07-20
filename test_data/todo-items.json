@@ -1,0 +1,62 @@
+[
+    {
+		"id": 1,
+        "itemName": "Buy Groceries for week of 7-10",
+        "dueDate": "07-14-2017",
+        "isComplete": false
+    },
+    {
+		"id": 2,
+        "itemName": "Buy Groceries for week of 7-3",
+        "dueDate": "07-5-2017",
+        "isComplete": true
+    },
+    {
+		"id": 3,
+        "itemName": "Renew Driver's License",
+        "dueDate": "07-12-2021",
+        "isComplete": false
+    },
+    {
+		"id": 4,
+        "itemName": "Build Spice Rack",
+        "dueDate": "07-12-2018",
+        "isComplete": false
+    },
+    {
+		"id": 5,
+        "itemName": "Rotate Tires",
+        "dueDate": "07-12-2016",
+        "isComplete": true
+    },
+    {
+		"id": 6,
+        "itemName": "Clean kitchen",
+        "dueDate": "05-12-2017",
+        "isComplete": false
+    },
+    {
+		"id": 7,
+        "itemName": "Open a new checking account",
+        "dueDate": "07-12-2017",
+        "isComplete": true
+    },
+    {
+		"id": 8,
+        "itemName": "Donate clothes to Goodwill",
+        "dueDate": "07-22-2017",
+        "isComplete": false
+    },
+    {
+		"id": 9,
+        "itemName": "File Income Taxes for 2014",
+        "dueDate": "07-12-2014",
+        "isComplete": false
+    },
+    {
+		"id": 10,
+        "itemName": "Schedule End of Year Review",
+        "dueDate": "12-12-2017",
+        "isComplete": false
+    }
+]
