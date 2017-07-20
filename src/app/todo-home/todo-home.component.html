@@ -1,5 +1,5 @@
-<todo-form></todo-form>
+<todo-form (onFormSubmit)="addItem($event)"></todo-form>
 <br />
 <todo-filter-form></todo-filter-form>
 <br />
-<todo-list></todo-list>
+<todo-list [todoItems] = "todos" (onRemoveItem)="removeItem($event)" (onUpdateStatus)="updateStatus($event)"></todo-list>

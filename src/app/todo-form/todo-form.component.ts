@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup,  FormControl, Validators, FormBuilder } from '@angular/forms';
 
 
@@ -16,6 +16,7 @@ export class TodoFormComponent implements OnInit {
   buttonText = {cancel: 'Cancel', remove: 'Remove'};
   editing = false;
   
+  @Output() onFormSubmit = new EventEmitter();
   constructor(private formBuilder: FormBuilder, private todoService: TodoService) { }
 
   ngOnInit() {
@@ -25,8 +26,8 @@ export class TodoFormComponent implements OnInit {
   onSubmit()
   {
     if (this.todoForm.valid) {
-      console.log(this.todoForm.value);
-      this.todoService.addItem(this.todoForm.value['todoItem'], this.todoForm.value['todoDate']);
+      console.log(' on submit ', this.todoForm.value);
+      this.onFormSubmit.emit(this.todoForm.value);
       this.reset();
     }
   }

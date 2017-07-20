@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../services/todo-service';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { TodoService, TodoItem } from '../services/todo-service';
 
 @Component({
   selector: 'todo-list',
@@ -8,7 +8,12 @@ import { TodoService } from '../services/todo-service';
 })
 export class TodoListComponent implements OnInit {
 
+  @Input()
   todoItems;
+
+  @Output()  onRemoveItem = new EventEmitter<TodoItem>();
+  @Output()  onEditItem = new EventEmitter<TodoItem>();
+  @Output()  onUpdateStatus = new EventEmitter<TodoItem>();
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
@@ -18,19 +23,17 @@ export class TodoListComponent implements OnInit {
 
   updateStatus(todoItem)
   {
-    console.log(`Marking ${JSON.stringify(todoItem)} as complete`);
-    todoItem.isComplete = !todoItem.isComplete;
-    this.todoService.updateItem(todoItem);
+    this.onUpdateStatus.emit(todoItem);
   }
 
   editItem(todoItem)
   {
-    //just for shits and giggles change this to emit the even to the parent container which will handle the delete
+    this.onEditItem.emit(todoItem);
   }
 
   removeItem(todoItem)
   {
-    this.todoService.removeItem(todoItem);
+    this.onRemoveItem.emit(todoItem);
   }
 
 }
