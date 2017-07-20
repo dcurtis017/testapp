@@ -11,10 +11,19 @@ export class TodoService {
     this.items.push(new TodoItem(3, 'Write to penpal', '05/22/2017', true));
   }
 
-  addItem(txt, dueDate)
+  //add some kind of error checking
+  saveItem(todoItem)
   {
-    let max = (this.items.length == 0) ? 0 : Math.max.apply(Math,this.items.map(function(o){return o.id;}));
-    this.items.push(new TodoItem(max+1, txt, dueDate, false));
+    if(todoItem.id == 0)
+    {
+      let max = (this.items.length == 0) ? 0 : Math.max.apply(Math,this.items.map(function(o){return o.id;}));
+      todoItem.id = max+1;
+      this.items.push(todoItem);
+    }
+    else
+    {
+      this.updateItem(todoItem);
+    }
   }
 
   getItems()
@@ -31,7 +40,8 @@ export class TodoService {
   updateItem(todoItem)
   {
     let found = this.items.find((tdi) => tdi.id == todoItem.id);
-    found = todoItem;
+    let index = this.items.findIndex((tdi) => tdi.id == todoItem.id);
+    this.items.splice(index, 1, todoItem);
   }
 }
 

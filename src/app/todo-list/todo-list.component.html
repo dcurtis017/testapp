@@ -1,4 +1,4 @@
 <p *ngFor="let tdi of todoItems; let i = index">
  <!--[ngClass]="{'completed': tdi.isComplete, 'hidden': hovered}"-->
- <span [class.completed] = "tdi.isComplete"><input type = "checkbox" (click)="updateStatus(tdi)" [checked]="tdi.isComplete"> {{ tdi.todoText }} is due on {{ tdi.todoDate }}</span><span (click)="removeItem(tdi)">Remove</span><!--<span [class.hidden] = "!hovered" (mouseout)="hovered=false" >Complete</span>-->
+ <span [class.completed] = "tdi.isComplete"><input type = "checkbox" (click)="updateStatus(tdi)" [checked]="tdi.isComplete"> <span (click)="editItem(tdi)">{{ tdi.todoText }} is due on {{ tdi.todoDate }}</span></span><span (click)="removeItem(tdi)">Remove</span><!--<span [class.hidden] = "!hovered" (mouseout)="hovered=false" >Complete</span>-->
 </p>

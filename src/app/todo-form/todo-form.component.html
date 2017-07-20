@@ -1,5 +1,37 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" novalidate *ngIf="showForm">
+  <p>{{ todoForm.status}}</p>
   <input type = "text" formControlName = "todoItem" placeholder="What do you need to do?"> 
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoItem').hasError('required') && todoForm.get('todoItem').touched">
+  Description is required
+</div>
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoItem').hasError('minlength') && todoForm.get('todoItem').touched">
+  At least 2 characters are required
+</div>
   <input tye = "text" formControlName = "todoDate" placeholder = "MM/DD/YYYY">
-  <button type = "submit" name = "save-btn">Save</button><button (click) = "reset()" type = "reset" name = "cancel-btn">{{editing  ? 'Cancel' : 'Reset'}}</button>
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoDate').hasError('invalidDateFormat') && todoForm.get('todoDate').touched">
+  Dates must be in the format MM/DD/YYYY
+</div>
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoDate').hasError('invalidDay') && todoForm.get('todoDate').touched">
+  Day must between 1 and 31
+</div>
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoDate').hasError('invalidMonth') && todoForm.get('todoDate').touched">
+  Month must be between 1 and 12
+</div>
+  <div
+  class="error"
+  *ngIf="todoForm.get('todoDate').hasError('invalidYear') && todoForm.get('todoDate').touched">
+  Year must be between 1920 and 2100
+</div>
+  <button type = "submit" name = "save-btn" [disabled]="todoForm.invalid">Save</button><button (click) = "resetForm()" type = "reset" name = "cancel-btn">{{editing  ? 'Cancel' : 'Reset'}}</button>
 </form>
+<!-- put in columns??-->

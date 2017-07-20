@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
-import { TodoService, TodoItem } from '../services/todo-service';
+import { TodoItem } from '../services/todo-service';
 
 @Component({
   selector: 'todo-list',
@@ -14,10 +14,10 @@ export class TodoListComponent implements OnInit {
   @Output()  onRemoveItem = new EventEmitter<TodoItem>();
   @Output()  onEditItem = new EventEmitter<TodoItem>();
   @Output()  onUpdateStatus = new EventEmitter<TodoItem>();
-  constructor(private todoService: TodoService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.todoItems = this.todoService.getItems();
+   
   }
 
 
