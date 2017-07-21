@@ -1,1 +1,1 @@
-<input type = "text" name = "filter-string"> <input type = "checkbox" name = "is-complete-filter"> Only Complete
+<input #input type = "text" (input)="onChangeFilterTerm.emit(input.value)"> <input #onlyComplete type = "checkbox" name = "is-complete-filter" (click)="changeOnlyComplete(onlyComplete.checked)" > Only Complete

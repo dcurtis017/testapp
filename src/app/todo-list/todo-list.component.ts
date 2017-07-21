@@ -11,6 +11,9 @@ export class TodoListComponent implements OnInit {
   @Input()
   todoItems;
 
+  onlyShowComplete: boolean;
+  filterString: string;
+
   @Output()  onRemoveItem = new EventEmitter<TodoItem>();
   @Output()  onEditItem = new EventEmitter<TodoItem>();
   @Output()  onUpdateStatus = new EventEmitter<TodoItem>();
@@ -20,6 +23,10 @@ export class TodoListComponent implements OnInit {
    
   }
 
+  updateOnlyShowCompleteFilter(onlyShowComplete)
+  {
+    this.onlyShowComplete = onlyShowComplete;
+  }
 
   updateStatus(todoItem)
   {

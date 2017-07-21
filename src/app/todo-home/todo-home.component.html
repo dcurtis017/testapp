@@ -1,5 +1,3 @@
 <todo-form (onFormSubmit)="saveItem($event)" (onFormReset)="createEmptyTodoItem()" [todoItem]="currentTodo"></todo-form>
 <br />
-<todo-filter-form></todo-filter-form>
-<br />
 <todo-list [todoItems] = "todos" (onRemoveItem)="removeItem($event)" (onUpdateStatus)="updateStatus($event)" (onEditItem)="editItem($event)"></todo-list>

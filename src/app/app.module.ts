@@ -13,6 +13,7 @@ import { TodoFilterFormComponent } from './todo-filter-form/todo-filter-form.com
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 import { TodoService } from './services/todo-service';
+import { FilterTodosPipe } from './filter-todos.pipe';
 
 const routes: Routes = [
  {path: 'home', component: TodoHomeComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
     TodoHomeComponent,
     TodoFormComponent,
     TodoFilterFormComponent,
-    TodoListComponent
+    TodoListComponent,
+    FilterTodosPipe
   ],
   imports: [
     BrowserModule,
